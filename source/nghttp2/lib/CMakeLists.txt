@@ -46,6 +46,7 @@ if(ENABLE_SHARED_LIB)
     COMPILE_FLAGS "${WARNCFLAGS}"
     VERSION ${LT_VERSION} SOVERSION ${LT_SOVERSION}
     C_VISIBILITY_PRESET hidden
+    PREFIX "lib"
   )
   target_include_directories(nghttp2 INTERFACE
     "${CMAKE_CURRENT_BINARY_DIR}/includes"
@@ -64,7 +65,7 @@ if(HAVE_CUNIT OR ENABLE_STATIC_LIB)
   set_target_properties(nghttp2_static PROPERTIES
     COMPILE_FLAGS "${WARNCFLAGS}"
     VERSION ${LT_VERSION} SOVERSION ${LT_SOVERSION}
-    ARCHIVE_OUTPUT_NAME nghttp2${STATIC_LIB_SUFFIX}
+    ARCHIVE_OUTPUT_NAME nghttp2_static
   )
   target_compile_definitions(nghttp2_static PUBLIC "-DNGHTTP2_STATICLIB")
   if(ENABLE_STATIC_LIB)

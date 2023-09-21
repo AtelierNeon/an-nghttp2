@@ -22,9 +22,13 @@
 # OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-cmake_minimum_required(VERSION 3.0)
+cmake_minimum_required(VERSION 3.0...3.15.0)
 # XXX using 1.8.90 instead of 1.9.0-DEV
 project(nghttp2 VERSION 1.56.0)
+
+message (STATUS "nghttp2 version ${PROJECT_VERSION}")
+
+option (NGHTTP2_WITH_DISABLED_TEST_APPS "Build nghttp2 with disabled test apps." OFF)
 
 # See versioning rule:
 #  https://www.gnu.org/software/libtool/manual/html_node/Updating-version-info.html
