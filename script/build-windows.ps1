@@ -44,7 +44,7 @@ $ProjectWithWorkaroundSpectre = if ($Env:MY_PROJECT_WITH_WORKAROUND_SPECTRE) {$E
 ####
 #### Project component level config
 ####
-$ProjectNgHttp2WithDisabledTestApps = if ($Env:MY_PROJECT_NGHTTP2_WITH_DISABLED_TEST_APPS) {$Env:MY_PROJECT_NGHTTP2_WITH_DISABLED_TEST_APPS} else {'OFF'}
+$ProjectNgHttp2WithoutTestApps = if ($Env:MY_PROJECT_NGHTTP2_WITHOUT_TEST_APPS) {$Env:MY_PROJECT_NGHTTP2_WITHOUT_TEST_APPS} else {'OFF'}
 
 ##
 ## My variables
@@ -54,8 +54,8 @@ $MyCmakeCommonArgumentList = @(
         "-T $ProjectToolset",
         "-DMY_REVISION=$ProjectRevision"
 )
-if ('ON'.Equals($ProjectNgHttp2WithDisabledTestApps)) {
-    $MyCmakeCommonArgumentList += "-DNGHTTP2_WITH_DISABLED_TEST_APPS=$ProjectNgHttp2WithDisabledTestApps"
+if ('ON'.Equals($ProjectNgHttp2WithoutTestApps)) {
+    $MyCmakeCommonArgumentList += "-DNGHTTP2_WITHOUT_TEST_APPS=$ProjectNgHttp2WithoutTestApps"
 }
 if ('ON'.Equals($ProjectWithSharedVcrt)) {
     $MyCmakeCommonArgumentList += "-DBUILD_WITH_SHARED_VCRT=$ProjectWithSharedVcrt"
@@ -125,7 +125,7 @@ Write-Information "[PowerShell] Project information: Disable clean build: $Proje
 Write-Information "[PowerShell] Project information: CMake generator: `"$MyCmakeGenerator`""
 Write-Information "[PowerShell] Project information: CMake toolset: `"$ProjectToolset`""
 Write-Information "[PowerShell] Project information: CMake platform to build: $MyCmakePlatformToBuildListString"
-Write-Information "[PowerShell] Component information: nghttp2 with disabled test apps: $ProjectNgHttp2WithDisabledTestApps"
+Write-Information "[PowerShell] Component information: nghttp2 without test apps: $ProjectNgHttp2WithoutTestApps"
 
 
 

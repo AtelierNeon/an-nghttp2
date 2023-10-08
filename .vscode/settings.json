@@ -2,6 +2,6 @@
     "cmake.buildDirectory": "${workspaceFolder}/build/vscode",
     "cmake.sourceDirectory": "${workspaceFolder}",
     "cmake.configureSettings": {
-        "NGHTTP2_WITH_DISABLED_TEST_APPS": "OFF"
+        "NGHTTP2_WITHOUT_TEST_APPS": "OFF"
     }
 }
